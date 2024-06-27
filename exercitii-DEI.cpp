@@ -191,3 +191,43 @@ int main() {
  cout << "radacina " << z; // radacina = 0.682343
  return 0;
 }
+                  
+                            II  // Quick Sort // 
+
+#include <iostream>
+using namespace std;
+
+int v[100], n;
+void schimb(int &a, int &b) {int aux = a; a = b; b = aux;}  // functie de interschimbare a variabilelor.
+void divizare(int s, int d, int &m) {
+    int i = s, j = d, pi = 0, pj = 1;
+    //pivotul fiind pe pozitia "s", parcurgerea incepe cu indicele j.
+    while(i < j) { // (s < d)
+        if (v[i] > v[j]) {
+            schimb (v[i], v[j]); // se interschimba valorile de pe pozitii
+            schimb (pi, pj); // se interschimba valorile pi si pj (= 0 si = 1)
+                            // 0 - ramane pe pozitie // 1 - se va parcurge vectorul de la elementul pi/pj ce are val 1
+        }
+        i += pi;
+        j -= pj;
+    }
+    m = i;
+}
+void quickSort(int s, int d) {
+    int m;
+    if(s < d) {
+        divizare(s,d,m);
+        quickSort(s, m-1);
+        quickSort(m + 1, d);
+    }
+}
+int main() {
+    cin >> n;
+    for (int i = 1; i <= n; ++i) {
+        cin >> v[i];
+    }
+    quickSort(1, n);
+    for (int i = 1; i <= n; ++i) {
+        cout << v[i] << " ";
+    }
+}
