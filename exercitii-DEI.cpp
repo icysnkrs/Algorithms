@@ -157,3 +157,37 @@ int main() {
     }
     return 0;
 }
+
+// Aplicare algoritm cautare binara (METODA BISECTIEI)
+/*
+ - sa se determine cu o precizie de 4 zecimale, radacina reala, din interbalul [0,1] a ecuatiei x^3+x-1 = 0.
+ - METODA BISECTIEI = consta in reducerea intervalului de cautare prin injumatatirea repetata si selectarea
+ subintervalului in care se gaseste radacina.
+ */
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+const float  r = 0.0001;
+float f(float x) { return x*x*x+x-1; } // returnam ecuatia pe care lucram, x^3+x-1.
+void divizare(float s, float d, float &m) { m = (s+d)/2; } // impartim sirul in doua.
+void radacina(float s, float d, float &z) {
+ float m;
+ if (d-s < r) { // r = 0.0001 unde r este eroarea acceptata pentru o precizie cu 4 zecimale
+  z = (s+d)/2;
+ } else {
+  divizare(s, d, m);
+  if (f(s) * f(m) < 0) {
+   radacina(s, m, z);
+  } else {
+   radacina(m, d, z);
+  }
+ }
+}
+int main() {
+ float z = 0;
+ radacina (0, 1, z);
+ cout << "radacina " << z; // radacina = 0.682343
+ return 0;
+}
