@@ -1,7 +1,7 @@
-                                            /// DIVIDE ET IMPERA //
+                                                                              🌐 /// DIVIDE ET IMPERA /// 🌐
 
 
-                                    // Suma Elemente Pare Vector Recursiv //
+                              ⭐           // Suma Elemente Pare Vector Recursiv //        ⭐
 /*
  - nr de elemente cat si elementele vectorului se citesc de la tastatura
  */
@@ -42,7 +42,8 @@ int main() {
     return 0;
 }
 
-                                    // Sa se calculeze suma 1x2+2x3+3x4+...+nx(n+1) //
+                          ⭐          // Sa se calculeze suma 1x2+2x3+3x4+...+nx(n+1) //        ⭐
+
 #include <iostream>
 using namespace std;
 
@@ -72,7 +73,7 @@ int main() {
     return 0;
 }
 
-                                    // Sa se determine valoarea minima si valoarea maxima dintr-un vector "v" //
+                      ⭐          // Sa se determine valoarea minima si valoarea maxima dintr-un vector "v" //        ⭐
 /*
  - nr de elemente ale vectorului se citesc de la tastatura
  */
@@ -118,7 +119,7 @@ int main() {
     return 0;
 }
                                                              
-                        I  // CAUTAREA BINARA // 
+                ⭐          I  // CAUTAREA BINARA //        ⭐ 
 
 #include <iostream>
 using namespace std;
@@ -192,7 +193,7 @@ int main() {
  return 0;
 }
                   
-                            II  // Quick Sort // 
+                  ⭐          II  // Quick Sort //        ⭐         
 
 #include <iostream>
 using namespace std;
@@ -227,6 +228,62 @@ int main() {
         cin >> v[i];
     }
     quickSort(1, n);
+    for (int i = 1; i <= n; ++i) {
+        cout << v[i] << " ";
+    }
+}
+
+                     ⭐         III  // Merge Sort //        ⭐
+
+#include <iostream>
+using namespace std;
+
+int v[100], n;
+void divizare(int s, int d, int &m) { m = (s+d) / 2;} // impartim vectorul in 2
+void interclasare (int s, int d, int m) {
+    int i = s, j = m + 1, k = 1, x[100]; // k este pozitia din noul vector X, vectorul X este cel in care vom adauga numerele sortate
+    while (i <= m && j <= d) {
+        if (v[i] < v[j]) {
+            x[k] = v[i];
+            ++i;
+        } else {
+            x[k] = v[j];
+            ++j;
+        }
+        ++k; // trecem pe urmatoarea pozitie K din vectorul final
+    }
+    if (i <= m) {
+        while (i <= m) {
+            x[k] = v[i];
+            ++i;
+            ++k;
+        }
+    } else {
+        while (j <= d) {
+            x[k] = v[j];
+            ++j;
+            ++k;
+        }
+    }
+    for (k = 1, i = s; i <= d; ++k, ++i) {
+        v[i] = x[k]; // atribuim numerele sortate din vectorul X inapoi catre vectorul V
+    }
+}
+void mergeSort(int s, int d) {
+    int m;
+    if (s < d) { // conditie interna
+        divizare(s, d, m);
+        mergeSort(s, m);
+        mergeSort(m+1, d);
+        interclasare(s, d, m);
+    }
+}
+int main() {
+    cin >> n;
+    for (int i = 1; i <= n; ++i) {
+        cin >> v[i];
+    }
+    mergeSort(1, n);
     for (int i = 1; i <= n; ++i) {
         cout << v[i] << " ";
     }
