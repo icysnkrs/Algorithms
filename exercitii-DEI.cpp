@@ -127,7 +127,7 @@ int n,x,v[100];
 void divizare (int s, int d, int &m) {m = (s+d)/2;}
 void cauta (int s, int d, int &z) {
     int m;
-    if(d > s) { // conditie daca exista doar un singur element
+    if(d >= s) { // conditie daca exista doar un singur element
         divizare(s, d, m);
         if (v[m] == x) { // conditie daca elementul se afla pe potizia m
             z = m;
@@ -136,17 +136,15 @@ void cauta (int s, int d, int &z) {
         } else {
             cauta (s, m, z); // cautam in partea stanga a elementului pentru ca x < valoarea de pe pozitia v[m]
         }
-    } else {
-        z = s;
     }
 }
 int main() {
     int z = 0;
     cin >> n; // lungimea sirului
-    cin >> x; // elementul cautat
-    for(int i = 1; i <= n; i++) {
+    for(int i = 1; i <= n; i++) { // citirea array-ului
         cin >> v[i];
     }
+    cin >> x; // elementul cautat
     cauta(1, n, z);
     if (z == 0) {
         cout << "Elementul nu exista";
