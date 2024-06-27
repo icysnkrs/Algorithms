@@ -123,33 +123,37 @@ int main() {
 #include <iostream>
 using namespace std;
 
-int n,x,v[100];
-void divizare (int s, int d, int &m) {m = (s+d)/2;}
-void cauta (int s, int d, int &z) {
+int n, x, v[100];
+
+void divizare(int s, int d, int &m) {
+    m = (s + d) / 2;
+}
+
+void cautare(int s, int d, int &z) {
     int m;
-    if(d >= s) { // conditie daca exista doar un singur element
+    if (d >= s) { // conditie daca exista doar un singur element sau daca sunt mai multe sa efectueze divizarea
         divizare(s, d, m);
-        if (v[m] == x) { // conditie daca elementul se afla pe potizia m
+        if (v[m] == x) // conditie daca elementul se afla pe potizia m
             z = m;
-        } else if (x > v[m]) {
-            cauta (m+1, d, z); // cautam in partea dreapta a elementului pentru ca x > valoarea de pe pozitia v[m]
-        } else {
-            cauta (s, m, z); // cautam in partea stanga a elementului pentru ca x < valoarea de pe pozitia v[m]
-        }
+        else if (x > v[m])
+            cautare(m+1, d, z); // cautam in partea dreapta a elementului pentru ca x > valoarea de pe pozitia v[m]
+        else
+            cautare(s, m, z); // cautam in partea stanga a elementului pentru ca x < valoarea de pe pozitia v[m]
     }
 }
+
 int main() {
     int z = 0;
     cin >> n; // lungimea sirului
-    for(int i = 1; i <= n; i++) { // citirea array-ului
+    for (int i = 1; i <= n; ++i) { // citirea array-ului
         cin >> v[i];
     }
-    cin >> x; // elementul cautat
-    cauta(1, n, z);
+    cin >> x;
+    cautare(1, n, z);
     if (z == 0) {
-        cout << "Elementul nu exista";
+        cout << "Elementul nu a fost gasit... z = " << z;
     } else {
-        cout << "Elementul exista, gasit pe pozitia: " << z;
+        cout << "Elementul a fost gasit pe pozitia z = " << z;
     }
     return 0;
 }
