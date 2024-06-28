@@ -34,7 +34,7 @@ void dei(int s, int d, int &z) {
 int main() {
     int z;
     cin >> n;
-    for (int i = 0; i < n; ++i) {
+    for (int i = 1; i < n; ++i) {
         cin >> v[i];
     }
     dei (1,n,z);
