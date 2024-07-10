@@ -1,4 +1,4 @@
-                                                                    🌐 GREEDY METHOD 🌐
+                                                                 //  🌐 GREEDY METHOD 🌐 //
 /*
 - se poate folosi pentru probleme in care se da o multime A si trebuie determinata o multime S reunit cu A care indeplineste anumite conditii.
 - se axeaza pe gandirea logica a persoanei si nu necesita neaparat anumiti algoritmi.
