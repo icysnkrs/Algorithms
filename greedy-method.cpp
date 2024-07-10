@@ -1,9 +1,8 @@
                                                                     🌐 GREEDY METHOD 🌐
 /*
 - se poate folosi pentru probleme in care se da o multime A si trebuie determinata o multime S reunit cu A care indeplineste anumite conditii.
-- o metoda simpla de a afla cea mai buna solutie a unei probleme.
 - se axeaza pe gandirea logica a persoanei si nu necesita neaparat anumiti algoritmi.
-- complexitatea algoritmului greedy propriu-zis este de O(n), dar depinde si de algoritmul de sortare folosit (Ex: QuickSort) care are nNogn ceea ce rezulta O(n) + O(n x logn) = nLogn.
+- complexitatea algoritmului greedy propriu-zis este de O(n), dar depinde si de algoritmul de sortare folosit (Ex: QuickSort) care are nLogn ceea ce rezulta O(n) + O(n x logn) = nLogn.
 */
 
 ⭐ Exercitiul I 
