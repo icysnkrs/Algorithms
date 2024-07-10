@@ -1,7 +1,7 @@
-⭐ Bubble Sort ⭐
+/* ⭐ Bubble Sort ⭐
 - este un algoritm de sortare foarte simplu dar cu o eficienta scazuta acesta avand complexitatea de n^2.
-  
-  Exemplu:
+*/
+ // Exemplu:
 
 #include <iostream>
 using namespace std;
